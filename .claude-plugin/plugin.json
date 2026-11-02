@@ -1,7 +1,7 @@
 {
   "name": "pr-comment-list",
   "description": "Review a GitHub PR and get back a triage list of one-line comments, anchored to verified line numbers. Read-only — it never posts.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": {
     "name": "Alicia Dinkel",
     "url": "https://github.com/adink829"
