@@ -1,8 +1,8 @@
 # pr-comment-list
 
-A [Claude Code](https://claude.com/claude-code) skill that reviews a GitHub pull
-request and hands back a **triage list** — one line per comment, tagged, anchored
-to a verified line number, with a permalink.
+A [Claude Code](https://claude.com/claude-code) and [Cursor](https://cursor.com)
+skill that reviews a GitHub pull request and hands back a **triage list** — one
+line per comment, tagged, anchored to a verified line number, with a permalink.
 
 It does not post anything. You read the list, keep the comments you agree with,
 and drop the rest.
@@ -32,6 +32,8 @@ Three things it does that matter:
 
 ## Install
 
+### Claude Code
+
 As a plugin:
 
 ```
@@ -45,6 +47,27 @@ Or drop the skill in by hand:
 git clone https://github.com/adink829/pr-comment-list.git
 ln -s "$PWD/pr-comment-list/skills/pr-comment-list" ~/.claude/skills/pr-comment-list
 ```
+
+### Cursor
+
+For local development, symlink the repo into Cursor's local plugins directory
+(Cursor discovers `.cursor-plugin/plugin.json` and the `skills/` folder):
+
+```bash
+git clone https://github.com/adink829/pr-comment-list.git
+mkdir -p ~/.cursor/plugins/local
+ln -s "$PWD/pr-comment-list" ~/.cursor/plugins/local/pr-comment-list
+```
+
+Or install only the skill:
+
+```bash
+mkdir -p ~/.cursor/skills
+ln -s "$PWD/pr-comment-list/skills/pr-comment-list" ~/.cursor/skills/pr-comment-list
+```
+
+Restart Cursor (or reload the window) after linking so the plugin/skill is picked
+up. Then ask the agent to review a PR the same way as below.
 
 ## Requirements
 

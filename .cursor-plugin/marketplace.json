@@ -1,0 +1,22 @@
+{
+  "name": "adink829",
+  "owner": {
+    "name": "Alicia Dinkel",
+    "url": "https://github.com/adink829"
+  },
+  "plugins": [
+    {
+      "name": "pr-comment-list",
+      "source": "./",
+      "description": "Review a GitHub PR and get back a triage list of one-line comments, anchored to verified line numbers. Read-only — it never posts.",
+      "version": "0.2.0",
+      "author": {
+        "name": "Alicia Dinkel",
+        "url": "https://github.com/adink829"
+      },
+      "homepage": "https://github.com/adink829/pr-comment-list",
+      "license": "GPL-3.0-or-later",
+      "keywords": ["code-review", "github", "pull-request", "skill"]
+    }
+  ]
+}
