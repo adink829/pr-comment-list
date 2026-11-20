@@ -46,6 +46,25 @@ git clone https://github.com/adink829/pr-comment-list.git
 ln -s "$PWD/pr-comment-list/skills/pr-comment-list" ~/.claude/skills/pr-comment-list
 ```
 
+### Update
+
+If you installed as a plugin, refresh the marketplace and then the plugin:
+
+```
+/plugin marketplace update adink829
+/plugin update pr-comment-list@adink829
+```
+
+Then run `/reload-plugins` or restart the session. Updates are only detected when
+the version in `.claude-plugin/plugin.json` changes.
+
+If you installed by hand, pull the latest changes in your clone. The symlink
+picks them up automatically:
+
+```bash
+cd pr-comment-list && git pull
+```
+
 ## Requirements
 
 - [`gh`](https://cli.github.com), authenticated (`gh auth status`)
