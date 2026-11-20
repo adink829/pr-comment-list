@@ -29,9 +29,10 @@ discard others. That shapes everything below:
 
 ## Ground rules
 
-**Read only.** Never post a comment, never push, never edit a file, never
-approve. You are producing text for the user to use. Nothing you do touches the
-PR.
+**Read only during the review.** Never post a comment, never push, never edit a
+file, never approve. You are producing text for the user to use. Posting or
+changing code happens only when they ask afterward, naming comments by number
+(see Finishing).
 
 **Don't ask permission** to fetch the PR, run `gh`, read files, or search the
 repo. That's assumed. Just go. The only reason to stop and ask is if you can't
@@ -218,18 +219,21 @@ Use this shape exactly:
 
 ## <path/as/shown/in/diff.ext>
 
-- **L55** `bug` — Drops `width: '100%'`. Two other files use SearchBar, their layout may shift. [link](permalink)
-- **L59** `nit` — `textInputSize ?? 'small'` could be a default parameter. [link](permalink)
+- **1 · L55** `bug` — Drops `width: '100%'`. Two other files use SearchBar, their layout may shift. [link](permalink)
+- **2 · L59** `nit` — `textInputSize ?? 'small'` could be a default parameter. [link](permalink)
 
 ## <path/to/another.ext>
 
-- **L12-L20** `question` — Removed the 82px cell height. Rows may jump while loading. Intended? [link](permalink)
+- **3 · L12-L20** `question` — Removed the 82px cell height. Rows may jump while loading. Intended? [link](permalink)
 
 _Reviewed with nothing to flag: path/a.ts, path/b.tsx, path/c/index.ts_
 ```
 
 Rules for the output:
 
+- **Number every comment**, straight through the whole list from 1 to N, not
+  per file. The number lets the user point back at a bullet ("post 1 and 3",
+  "expand 2") without retyping it.
 - **Only files with comments get a heading**, in diff order. A heading with
   "Nothing to flag." under it is a line the user has to read to learn nothing —
   on a 17-file PR that's most of the page.
@@ -247,7 +251,7 @@ Rules for the output:
   comment)` so they don't hunt for a line GitHub won't let them annotate. If the
   line is merely pre-existing and imperfect, it doesn't go in the list at all —
   that escape hatch is not a way around the scope rule.
-- **Ranges** as `**L12-L20**` when the point spans lines.
+- **Ranges** as `**3 · L12-L20**` when the point spans lines.
 - **Sort bullets by line number** within each file.
 - **Permalinks** as `https://github.com/<owner>/<repo>/blob/<full-sha>/<path>#L<start>-L<end>`.
   Use the full 40-character SHA — a short SHA or a branch name produces a link
@@ -293,5 +297,7 @@ it, and don't state it as fact.
 ## Finishing
 
 End with the offer, since they may want it: they can ask you to expand any
-bullet into a full paste-ready paragraph, or to post a chosen subset. Posting is
-a separate, explicit request — never fold it into this step.
+bullet into a full paste-ready paragraph, post a chosen subset, or make the
+changes some of them suggest, naming them by number ("post 1, 3, and 6", "make
+the changes in 2, 4, and 5"). Posting and editing are separate, explicit
+requests — never fold them into this step. Never approve, whatever they ask.

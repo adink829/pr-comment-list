@@ -4,8 +4,8 @@ A [Claude Code](https://claude.com/claude-code) skill that reviews a GitHub pull
 request and hands back a **triage list** — one line per comment, tagged, anchored
 to a verified line number, with a permalink.
 
-It does not post anything. You read the list, keep the comments you agree with,
-and drop the rest.
+It doesn't post or change anything on its own. You read the list, keep the
+comments you agree with, and drop the rest.
 
 ## Why
 
@@ -77,15 +77,29 @@ https://github.com/owner/repo/pull/1234
 
 ## src/components/SearchBar.tsx
 
-- **L55** `bug` — Drops `width: '100%'`. Two other files use SearchBar, their layout may shift. [link](…)
-- **L59** `nit` — `textInputSize ?? 'small'` could be a default parameter. [link](…)
+- **1 · L55** `bug` — Drops `width: '100%'`. Two other files use SearchBar, their layout may shift. [link](…)
+- **2 · L59** `nit` — `textInputSize ?? 'small'` could be a default parameter. [link](…)
 
 ## src/components/DataTable.tsx
 
-- **L12-L20** `question` — Removed the 82px cell height. Rows may jump while loading. Intended? [link](…)
+- **3 · L12-L20** `question` — Removed the 82px cell height. Rows may jump while loading. Intended? [link](…)
 
 _Reviewed with nothing to flag: src/hooks/useFilters.ts, src/utils/paginate.ts, …_
 ```
+
+### Acting on comments by number
+
+Every comment gets a number, counting 1 to N across the whole list rather than
+per file. Use the numbers to tell Claude what to do next, without copying or
+retyping any comments:
+
+```
+post comments 1, 3, and 6
+make the changes suggested by comments 2, 4, and 5
+expand comment 3 into a full paragraph
+```
+
+Nothing is posted or changed until you ask.
 
 ### Tags
 
