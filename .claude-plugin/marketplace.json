@@ -8,7 +8,7 @@
     {
       "name": "pr-comment-list",
       "source": "./",
-      "description": "Review a GitHub PR and get back a triage list of one-line comments, anchored to verified line numbers. Read-only — it never posts.",
+      "description": "Review a GitHub PR and get back a triage list of one-line comments, anchored to verified line numbers.",
       "version": "0.1.1",
       "author": {
         "name": "Alicia Dinkel",
